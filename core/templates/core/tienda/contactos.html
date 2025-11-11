@@ -1,0 +1,45 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+{%block titulo%}
+<title>📱 Contacto 📱</title>
+{%endblock titulo%}
+
+{% block banner %}
+  <!-- Tarjeta de Informacion -->
+  <div class="container-xxl mgn-top">
+    <!-- Titulo -->
+    <h3 class="dim-tittle-con text-center bor-con">Información De Contacto</h3>
+    <!-- Fila tarjetas -->
+    <div class="row">
+      <!-- Columna Imagen -->
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <img class="img-fluid dim-img-con" src="{% static 'core/img/img-contacto.jpg' %}" alt="image">
+      </div>
+      <!-- Datos -->
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="glass dim-img-con centy">
+          <h3 class="text-center dim-txt-con ">WhatsApp: +56 9 87326543 </h3>
+          <h3 class="text-center dim-txt-con ">Número: 22 3413 9758</h3>
+          <h3 class="text-center dim-txt-con ">Email: multipatitas@duocuc.cl</h3>
+          <h3 class="text-center dim-txt-con ">Asociación: @Adopta.me</h3>
+        </div>
+      </div>
+    </div>
+    <!-- Fila direccion -->
+    <h3 class="text-center dim-tittle-con">Dirección</h3>
+    <div class="row">
+      <iframe class="dim-map"
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d18506.1016023381!2d-115.82458309113777!3d37.24474054570918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzfCsDE0JzM1LjAiTiAxMTXCsDQ3JzM0LjkiVw!5e0!3m2!1ses!2scl!4v1681101782768!5m2!1ses!2scl"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+  <footer class="py-3">
+    <div class="border-bottom pb-1 my-1 mb-3">
+    </div>
+    <p class="text-center text-muted">@TheOffice © 2023</p>
+  </footer>
+{% endblock banner %}

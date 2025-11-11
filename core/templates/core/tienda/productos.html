@@ -1,0 +1,54 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+{%block titulo%}
+<title>🛍 Productos 🛍</title>
+{%endblock titulo%}
+
+{% block banner %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 navsty">
+      <!------------------------ Sidebar ------------------------>
+      <div class="admin-menu">
+        <div class="d-flex centy my-3 link-dark text-decoration-none border-bottom">
+          <h1 class="fs-5 ">Categorias</h1>
+        </div>
+        <ul class="navbar-nav">
+          <!------------------------ Filtro ------------------------>
+          <li class="my-2">
+            {% for i in categories %}
+            <a href="{% url 'productos' i.idCategory %}" class="nav-link text-black mb-3" aria-current="page">
+              <h1 class="fs-5 ">🐾{{ i.categoryName }}</h1>
+            </a>
+            {% endfor %}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-9 col-lg-10 col-xl-10 mt-5 pt-3">
+      <!------------------------ productos ----------------------->
+      <div class="row align-items-start my-3">
+        {% for dato in productos %}
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-3">
+          <a class="nav-link" href="{%url 'producto' dato.idProduct %}">
+            <div class="card fon-card dim-card-prod">
+              <img src="{{ dato.productImg.url }}" class="img-fluid bor-img-top" alt="image">
+              <h6 class="px-3 my-3">{{ dato.productName }}</h6>
+              <h6 class="px-3 text-muted"> {{ dato.productDesc }} <br> <small>Ver mas...</small></h6>
+              {% if dato.productDiscount == 0 %}
+              <h3 class="px-3 mt-3">${{ dato.productValue }} </h3>
+              {% else %}
+              <h3 class="px-3 my-3">${{ dato.productValue }}<del class="mx-5"><small>{{ dato.productDiscount }}%Off</del></small></h3>
+              {% endif %}
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock banner %}

@@ -1,0 +1,31 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+{%block titulo%}
+<title>🤝 BOLETA 🤝</title>
+{%endblock titulo%}
+
+{% block banner %}
+<!-- Tarjeta de Informacion -->
+<div class="container mgn-top">
+    <!-- Fila -->
+    <div class="row ">
+        <!-- Datos -->
+        <div class="col-12">
+            <!-- Titulo -->
+            <h1 class="mt-5 centy ">¡¡ BOLETA DE VENTA !! </h1>
+            <div class="centy">
+                <p>ID de Venta: {{ venta.idSale }}</p>
+                <p>Fecha de Compra: {{ venta.saleDate }}</p>
+                <p>Total: {{ venta.saleTotal }}</p>
+                
+                <!-- Mostrar otros detalles de la boleta según tus necesidades -->
+                
+                <p>Gracias por tu compra.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock banner %}

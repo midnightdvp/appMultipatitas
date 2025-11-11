@@ -1,0 +1,116 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+{%block titulo%}
+<title> {{ producto.productName }} </title>
+{%endblock titulo%}
+
+
+{% block banner %}
+<!------------------------ producto ----------------------->
+<div class="container mgn-top">
+  <div class="fon-card">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <img src="{{ producto.productImg.url }}" class=" img-fluid bor-img-pro" alt="Just No...">
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+        <div class="tam-txt-con tam-con">
+          <h3 class="text-justify">{{ producto.productName }}</h3>
+          <p class="text-justify">{{ producto.productDesc }}</h3>
+          <h3>Stock: {{ producto.productStock }}</h3>
+          {% if producto.productDiscount == 0 %}
+          <h3 class="px-3 mt-3">${{ producto.productValue }} </h3>
+          {% else %}
+          <h3 class="px-3 my-3">${{ producto.productValue }}<del class="mx-5"><small>{{ producto.productDiscount}}%Off</del></small></h3>
+          {% endif %}
+          <div class="aply-btn text-end">
+            <a href="{% url 'Add' producto.idProduct %}" class="btn btn btn-outline-secondary">Agregar al Carrito</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!------------------------ comentario ----------------------->
+<div class="container">
+  <form action="{% url 'enviarComentario' producto.idProduct %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row fon-card mgn-top">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="mt-4 centy">
+          <h5>Calificación</h5>
+        </div>
+        <div class="center-coment">
+          <p class="clasificacion">
+            <input class="input_stars" id="radio1" type="radio" name="estrellas" value="5">
+            <label class="stars" for="radio1">★</label>
+            <input class="input_stars" id="radio2" type="radio" name="estrellas" value="4">
+            <label class="stars" for="radio2">★</label>
+            <input class="input_stars" id="radio3" type="radio" name="estrellas" value="3">
+            <label class="stars" for="radio3">★</label>
+            <input class="input_stars" id="radio4" type="radio" name="estrellas" value="2">
+            <label class="stars" for="radio4">★</label>
+            <input class="input_stars" id="radio5" type="radio" name="estrellas" value="1" checked>
+            <label class="stars" for="radio5">★</label>
+          </p>
+        </div>
+      </div>
+      <!-- Añadir comentarios -->
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 my-4">
+        <div>
+          <h5>Comentarios</h5>
+        </div>
+        <textarea name="comentario" id="comentario" class="estilotextarea" cols="30" rows="10"
+          placeholder="Cuéntanos tu experiencia en Multipatitas"></textarea>
+        <div class="centy">
+          <button type="submit" class="btn btn-outline-dark aply-btn ">Aplicar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- Comentario -->
+  {% for comentario in comentarios %}
+  
+  <div class="row my-3 glass navsty fon-card">
+    <div class="col-2">
+      <img class="img-fluid shadow fon-card my-3" src="{{ usuario.userImg.url }}" alt="Just No...">
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 my-4">
+      <div>
+        <h5>{{ comentario.id }}</h5>
+        <div>
+          {% if comentario.comentPoints == 1 %}
+            <p class="starclass">★</p>
+          {% elif comentario.comentPoints == 2 %}
+            <p class="starclass">★★</p>
+          {% elif comentario.comentPoints == 3 %}
+            <p class="starclass">★★★</p>
+          {% elif comentario.comentPoints == 4 %}
+            <p class="starclass">★★★★</p>
+          {% elif comentario.comentPoints == 5 %}
+            <p class="starclass">★★★★★</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 my-4">
+      <div>
+        <div>
+          <h5>Comentario</h5>
+        </div>
+        <p class="text-justify">{{ comentario.comentTxt }}</p>
+      </div>
+    </div>
+  </div>
+  
+  {% endfor %}
+</div>
+<footer class="py-3">
+  <div class="border-bottom pb-1 my-1 mb-3">
+  </div>
+  <p class="text-center text-muted">@TheOffice © 2023</p>
+</footer>
+{% endblock banner %}

@@ -1,0 +1,65 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+
+{%block titulo%}
+<title>📝 Modificar Producto 📝</title>
+{%endblock titulo%}
+
+
+{% block banner %}
+<div class="container-fluid mgn-top-admin">
+    <!-- admin options -->
+    <div class="row">
+        <div class="col-sm-12 col-lg-3 col-xl-3 col-xxl-3 admy shadow ">
+            <div class="img-profile my-3 centy">
+                <img class="img-fluid shadow " src="{% static 'core/img/imginicio4.jpg' %}" alt="Just No...">
+            </div>
+            <div>
+                <h5 id="user-name">{{ user.username }}</h5>
+            </div>
+            <div class="admin-options admin-menu ">
+                <ul class="navbar-nav">
+                    <li class="my-3">
+                        <a class="nav-link" href="{%url 'add_product'%}"><i class="bi bi-bag-plus">
+                                Agregar Productos</i> </a>
+                    </li>
+                    <li class="my-3">
+                        <a class="nav-link" href="{%url 'mod_productos'%}"><i class="bi bi-box-seam">
+                                Modificar Productos</i></a>
+                    </li>
+                    <li class="my-3">
+                        <a class="nav-link" href="{%url 'cuenta'%}"><i class="bi bi-arrow-left-circle">
+                                Volver</i> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Pedidos realizados por usuarios -->
+        <div class="col-sm-12 col-lg-9 col-xl-9 col-xxl-9 navsty shadow">
+            <div class="row" id="modProds">
+                <table border="1">
+                    <tr>
+                        <th>Total</th>
+                        <th>Fecha de compra</th>
+                        <th>Opciones</th>
+                    </tr>
+
+                    {% for venta in ventas %}
+                    <tr>
+                        <td>{{ venta.id.idSale }}</td>
+                        <td>{{ venta.id.idDetail.productCount }}</td>
+                        <td>{{ venta.saleTotal }}</td>
+                        <td>{{ venta.saleDate }}</td>
+                        <td><button type="button" class="btn btn-outline-secondary">Ver detalle</button></td>
+                    </tr>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock banner %}

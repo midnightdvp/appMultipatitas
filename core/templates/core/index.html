@@ -1,0 +1,53 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+
+{%block titulo%}
+<title>🐾 MultiPatitas 🐾</title>
+{%endblock titulo%}
+
+
+
+{% block banner %}
+<div class="col-sm-12 col-md-12 col-xl-12 col-xxl-12">
+    <img class="img_index shadow" src="{% static 'core/img/img_index.jpg' %}" alt="Just No...">
+</div>
+<div class="container-fluid dim-contacto my-5">
+    <div class="row text-contacto dim-con-txt">
+        <!-- Bienvenida-->
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="centy">
+                <h1 class="colory my-3">¡TE DAMOS LA BIENVENIDA!</h1>
+                <h3 class="my-2">🐾{{user.username}}🐾</h3>
+                <h3 class="colory my-3">¡Esperamos que puedas encontrar lo que andas buscando!</h4>
+                    <h5 class="my-1 text-justify">Somos una empresa social comprometida con el bienestar de los animales
+                        abandonados. Nos dedicamos a la venta de accesorios y productos para mascotas de alta calidad y
+                        estilo, con el objetivo de donar parte de nuestras ganancias a una ONG local que cuida y rescata
+                        a animales sin hogar.</h5>
+                    <h5 class="my-1 text-justify">En Multipatitas, creemos que todas las mascotas merecen amor y
+                        cuidado, independientemente de su origen o raza. Es por eso que seleccionamos cuidadosamente
+                        cada producto que ofrecemos, asegurándonos de que sean seguros, duraderos y respetuosos con el
+                        medio ambiente.</h5>
+                    <h5 class="my-1 text-justify">Así que, si estás buscando productos para tu mascota o simplemente
+                        deseas apoyar una buena causa, no dudes en visitar Multipatitas. Juntos podemos hacer la
+                        diferencia en la vida de nuestros amigos más fieles".</h5>
+            </div>
+        </div>
+        <!-- fotos -->
+        <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+            <img class="img-fluid shadow" src="{% static 'core/img/imginicio1.jpg' %}" alt="Sin imagen">
+            <img class="img-fluid shadow my-5" src="{% static 'core/img/imginicio4.jpg' %}" alt="Sin imagen">
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+            <img class="img-fluid shadow" src="{% static 'core/img/imginicio2.jpg' %}" alt="Sin imagen">
+            <img class="img-fluid shadow my-5" src="{% static 'core/img/imginicio5.jpg' %}" alt="Sin imagen">
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 ">
+            <img class="img-fluid shadow" src="{% static 'core/img/imginicio3.jpg' %}" alt="Sin imagen">
+            <img class="img-fluid shadow my-5" src="{% static 'core/img/imginicio6.jpg' %}" alt="Sin imagen">
+        </div>
+    </div>
+</div>
+{% endblock banner %}

@@ -1,0 +1,38 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+{%block titulo%}
+<title>🤝 Compra 🤝</title>
+{%endblock titulo%}
+
+{% block banner %}
+<!-- Tarjeta de Informacion -->
+<div class="container mgn-top">
+    <!-- Fila -->
+    <div class="row ">
+        <!-- Datos -->
+        <div class="col-12 glass1">
+            <!-- Titulo -->
+            <h1 class="mt-5 centy ">GRACIAS POR SU COMPRA! </h1>
+            <div class="centy">
+                <h4 class="centy mt-5 mx-5"> Comenzaremos a preparar tu pedido y te mantendremos al tanto de
+                    cualquier novedad, no olvides que tu comprobante de compra se enviara vía correo. 😻</h4>
+            </div>
+        </div>
+        <div class="col-12 glass2">
+            <div>
+                <div class="centy">
+                    <h1 class="mx-5 mt-4"> Siguenos en nuetras redes sociales!!!</h1>
+                    <div class="buttons_redes mt-5">
+                        <a href="#" class="fa fa-facebook mx-5"></a>
+                        <a href="#" class="fa fa-twitter mx-5"></a>
+                        <a href="#" class="fa fa-instagram mx-5"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock banner %}

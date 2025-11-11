@@ -1,0 +1,57 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+{%block titulo%}
+<title>👨‍💻 Modificar Perfil 👨‍💻</title>
+{%endblock titulo%}
+
+{% block banner %}
+  <div class="container-xl mgn-top-user">
+    <form action="{% url 'modificarCuenta' request.user.id %}" method="POST" class="form-design" id="formModCuenta">
+      {% csrf_token %}
+      <div class="row content-design">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-lg-4">
+          <div class="user-img">
+            <label for="imgProd">
+              <span id="selectedFileName">Seleccionar Imagen
+                <img class="img-fluid shadow" src="{{ user_img.url }}" alt="Sin imagen">
+              </span>
+            </label>
+            <input type="file" id="imgProd" name="imgProd" style="display: none;">
+            <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-2 centy">
+              <a href="{% url 'mod_Pass' %}"><button type="button" class="btn btn-outline-dark" id="change-img">Modificar Contraseña</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8 col-lg-8 ">
+          <div class="my-0 centy">
+            <label for="inputUser" class="form-label"><small>Nombre de usuario</small></label>
+            <input type="text" class="form-control input-design" id="user-name" name="user-name" aria-describedby="InputHelp" value="{{ usuario.nickName }}">
+          </div>
+          <div class="my-2 centy">
+            <label for="textComent" class="form-label"><small>Correo</small></label>
+            <input type="email" class="form-control input-design" name="email" id="email" aria-describedby="InputHelp" value="{{ usuario.userEmail }}">
+          </div>
+          <!------direccion-->
+          <div class="my-2 centy">
+            <label for="textComent" class="form-label"><small>Teléfono móvil</small></label>
+            <input type="text" class="form-control input-design" name="number" id="number" aria-describedby="InputHelp" value="{{ usuario.userPhone }}">
+          </div>
+          {% if error_message %}
+          <div>
+            <p class="text-muted">{{ error_message }}</p>
+          </div>
+          {% endif %}
+          <div class="d-grid gap-2 col-6 mx-auto mt-4 mb-2 centy">
+            <button type="submit" class="btn btn-outline-dark">Aplicar Cambios</button>
+          </div>
+          <p class="warning" id="warning"></p>
+        </div>
+      </div>
+    </form>
+  </div>
+    <!--Scripts-->
+    <script src="{% static 'core/Js/user_validate.js'%}"></script>
+{% endblock banner %}

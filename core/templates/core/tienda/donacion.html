@@ -1,0 +1,38 @@
+<!-- Herencia plantilla -->
+{% extends 'core/template.html' %}
+<!-- MetaPython -->
+{% load static %}
+
+
+{%block titulo%}
+<title>🙌 Donacion 🙌</title>
+{%endblock titulo%}
+
+{% block banner %}
+<div class="container mgn-top-user bkg-dnt shadow">
+    <div class="row">
+        <div class="col-6">
+            <div class="p-2 my-3 esp-design shadow">
+                <h1>¡Bienvenidxs a la ONG "Adopta.me"!</h1>
+            </div>
+            <img class="img-fluid" src="{% static 'core/img/LOGOFINAL2.png' %}" alt="Just No...">
+        </div>
+        <div class="col-6">
+            <div class="p-2">
+                <h1 class="mgn-top-cart-items p-2 esp-design shadow">En "Adopta.me" :</h1> 
+                <h5 class="text-justify p-2 esp-design shadow">
+                Te invitamos a unirte a nuestra causa y marcar la diferencia en la vida de los animales. Ya sea a través
+                de donaciones, voluntariado o difusión de nuestro trabajo, cada pequeño acto de solidaridad cuenta y nos
+                acerca a un mundo más compasivo y justo para todas las criaturas.
+                Juntos, podemos construir un futuro donde los animales sean tratados con amor, cuidado y respeto. ¡Únete
+                a "Adopta.me" y hagamos la diferencia juntos!.</h5>
+            </div>
+            <div class="p-2 my-2 esp-design shadow">
+                <h5>🐾Ademas con cada compra que estas haciendo se le estara donando un 10% del valor total de tu compra a esta ONG y a sus Animalitos 🐾</h5>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock banner %}
